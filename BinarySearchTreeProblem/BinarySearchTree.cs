@@ -61,6 +61,7 @@ namespace BinarySearchTreeProblem
                 this.rightTree.Display();
             }
         }
+
         public void GetSize() // this method is used to get total number of values or nodes added
         {
             Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
