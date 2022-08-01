@@ -24,12 +24,12 @@ namespace BinarySearchTreeProblem
         }
         int leftCount = 0, rightCount = 0;
         bool result = false;
-        public void Insert(T item)
+        public void Insert(T item) // this method is used to insert the value in tree
         {
             T currentNodeValue = this.NodeData;
-            if ((currentNodeValue.CompareTo(item)) > 0) // "A".CompareTo("a")
-            {
-                if (this.leftTree == null)
+            if ((currentNodeValue.CompareTo(item)) > 0) 
+            {//if this condition becomes true it means the value we want to add is less than currentNodeValue and it will check if left node is null or not
+                if (this.leftTree == null) // if the leftTree is null then the value is added in this or else this insert method will be called again
                 {
                     this.leftTree = new BinarySearchTree<T>(item);
                 }
@@ -37,9 +37,9 @@ namespace BinarySearchTreeProblem
                     this.leftTree.Insert(item);
 
             }
-            else
+            else//if the first if condition becomes false it means the value we want to add is greater than currentNodeValue and it will check if right node is null or not
             {
-                if (this.rightTree == null)
+                if (this.rightTree == null)// if the rightTree is null then the value is added in this or else this insert method will be called again
                 {
                     this.rightTree = new BinarySearchTree<T>(item);
                 }
@@ -47,7 +47,7 @@ namespace BinarySearchTreeProblem
                     this.rightTree.Insert(item);
             }
         }
-        public void Display()
+        public void Display() // this method is used to display the value
         {
             if (this.leftTree != null)
             {
@@ -61,7 +61,7 @@ namespace BinarySearchTreeProblem
                 this.rightTree.Display();
             }
         }
-        public void GetSize()
+        public void GetSize() // this method is used to get total number of values or nodes added
         {
             Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
         }
